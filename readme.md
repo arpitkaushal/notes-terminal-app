@@ -33,6 +33,11 @@ For any of these four commands, you can get help by running \
 Example -  \
 `node app.js remove --help`
 
-> Contribute to this app \
+> Contribute to this app 
+
 At the end of `notes.js` file, I have added some comments which aim at improving the efficiency of the operations  `add` , `remove`, and `read`. Basically, I'm iterating over the entire JSON file, when it can be avoided. Suggestions to improve these operations for large datsets is welcome! \
 If you want to discuss this over mail, you can reach me [here](kaushal.arpit@gmail.com)
+
+>Note 
+
+The Playground directory contains files that aren't related to the app but they helped in understanding the implementation of some features crucial to the app. 
