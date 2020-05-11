@@ -7,13 +7,15 @@ const notes = require('./notes.js');
 const titleOptions = {
   describe: 'Title of the note',
   demand: true,
-  alias: 't'
+  alias: 't',
+  string: true
 }
 
 const bodyOptions = {
   describe: 'Body of the note',
   demand: true,
-  alias: 'b'
+  alias: 'b',
+  string: true
 }
 
 const aboutApp = "This app was created to help create and manage our notes from the command line. How cool is that?"
