@@ -16,7 +16,7 @@ var logNote = note => {
 }
 
 var saveNotes = (notes) => {
-  fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+  fs.writeFileSync('./userdata/notes-data.json', JSON.stringify(notes));
 }
 
 
@@ -50,6 +50,7 @@ var getNote = (title) => {
 var removeNote = (title) => {
   var notes = fetchNotes();
   var filteredNotes = notes.filter( note => note.title !== title );
+  saveNotes(filteredNotes);
   return filteredNotes.length !== notes.length;                       // was something deleted? 
 }
 
