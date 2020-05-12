@@ -8,14 +8,16 @@ const titleOptions = {
   describe: 'Title of the note',
   demand: true,
   alias: 't',
-  string: true
+  string: true,
+  requiresArg: true             // string cannot be empty
 }
 
 const bodyOptions = {
   describe: 'Body of the note',
   demand: true,
   alias: 'b',
-  string: true
+  string: true,
+  requiresArg: true             // string cannot be empty
 }
 
 const aboutApp = "This app was created to help create and manage our notes from the command line. How cool is that?"
