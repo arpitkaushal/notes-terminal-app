@@ -1,9 +1,9 @@
-const fs = require('fs');
-const _ = require('lodash');
-const yargs = require('yargs');
+const _ = require('lodash');    
+const yargs = require('yargs');       // to parse user input from terminal
 
-const notes = require('./notes.js');
+const notes = require('./notes.js');  // this contains all CRUD operations 
 
+// constraints for title
 const titleOptions = {
   describe: 'Title of the note',
   demand: true,
@@ -12,6 +12,7 @@ const titleOptions = {
   requiresArg: true             // string cannot be empty
 }
 
+// constraints for body
 const bodyOptions = {
   describe: 'Body of the note',
   demand: true,
@@ -20,8 +21,8 @@ const bodyOptions = {
   requiresArg: true             // string cannot be empty
 }
 
+// app info to get from terminal
 const aboutApp = "This app was created to help create and manage our notes from the command line. How cool is that?"
-
 const versionApp = "You're using the best version of the notes app!"
 
 const argv = yargs
@@ -38,7 +39,7 @@ const argv = yargs
     title: titleOptions
   })
   .help()
-  .version(versionApp)
+  .version(versionApp)  //  display info when 'node app.js --version' is run
   .argv;
 
 var command = argv._[0];
@@ -54,11 +55,11 @@ if (command === 'about') {
 else if (command === 'add') {
 
   var note = notes.addNote(argv.title, argv.body);
-  if (note) {                         //this part will only work if 'notes' was returned as an object
+  if (note) {                         // this part will only work if 'note' was returned as an object
     console.log('Note created');
-    notes.logNote(note);
+    notes.logNote(note);              // prints formatted note  
   }
-  else console.log('Note title taken');
+  else console.log('Note title taken'); // this is the only other possibility if note wasn't returned, because we've already taken care of bad input
 
 } 
 
@@ -71,7 +72,7 @@ else if (command === 'list') {
 else if (command === 'read') {
  
   var matchedNote = notes.getNote(argv.title);
-  if(matchedNote){
+  if(matchedNote){        // run iff getNote returned a note 
     console.log('Note found');
     notes.logNote(matchedNote);
   } else console.log('Note not found');
@@ -91,12 +92,3 @@ else if (command === 'remove') {
 else {
   console.log('Command not recognized');
 }
-
-
-
-
-
-// archived comments
-
-// console.log('Command: ', command);
-// console.log(`Yargs: `,argv);
